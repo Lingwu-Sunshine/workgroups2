@@ -525,7 +525,7 @@ You can get these commands using `wg-get-org-agenda-view-commands'."
             `((serialize . ,(lambda (_buffer)
                               (when wg-debug
                                 (message "pdf-view-mode serialize is called => %s" _buffer))
-                              (list (pdf-view-current-page) pdf-view-display-size)))
+                              (list (eval '(pdf-view-current-page)) pdf-view-display-size)))
               (deserialize . ,(lambda (_buffer vars)
                                 (let ((file (wg-buf-file-name _buffer))
                                       buffer)
